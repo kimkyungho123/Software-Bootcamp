@@ -1,7 +1,16 @@
-#File Example
-for i in range(1, 51):
-    with open(str(i) + "주차.txt", "w", encoding="utf8") as report_file:
-        report_file.write("- {0} 주차 주간보고-".format(i))
-        report_file.write("\n부서 :")
-        report_file.write("\n이름 :")
-        report_file.write("\n업무 요약 :")
+#class
+
+# __init__ : (객체가 만들어질 때 자동으로 호출됨) 생성자
+# 객체 : class로 부터 만들어지는 것
+class Unit:
+    def __init__(self, name, hp, damage):
+        self.name = name
+        self.hp = hp
+        self.damage = damage
+        print("{0} 유닛이 생성 되었습니다".format(self.name))
+        print("체력 {0}, 공격력 {1}".format(self.hp, self.damage))
+
+
+marine1 = Unit("마린", 40, 5)
+marine2 = Unit("마린", 40, 5)
+tank = Unit("탱크", 150, 35)
