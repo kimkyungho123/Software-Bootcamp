@@ -1,32 +1,21 @@
-# def profile(name, age, main_lang):
-#     print(name, age, main_lang)
-#
-#
-# profile(name="유재석", main_lang="파이썬", age=20,)
-# profile(main_lang="자바", name="김태호", age=20)
+#전역변수&지역변수
+
+gun = 10
 
 
+def checkpoint(soldiers):
+    global gun
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
 
 
-
-# def profile(name, age, lang1, lang2, lang3, lang4, lang5):
-#     print("이름 : {0}\t나이 : {1}\t".format(name, age), end=" ")
-#     print(lang1, lang2, lang3, lang4, lang5)
-#
-#
-# profile("유재석", 20, "python", "Java", "C", "C++", "C#")
-# profile("김태호", 25, "Kotlin", "Swift", "", "", "")
+def checkpoint_return(gun, soldiers):
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
+    return gun
 
 
-
-
-#가변인자
-def profile(name, age, *language):
-    print("이름 : {0}\t나이 : {1}\t".format(name, age), end=" ")
-    for lang in language:
-        print(lang, end=" ")
-    print()
-
-
-profile("유재석", 20, "python", "Java", "C", "C++", "C#", "JavaScript")
-profile("김태호", 25, "Kotlin", "Swift")
+print("전체 총 : {0}".format(gun))
+# checkpoint(2)
+gun = checkpoint_return(gun, 2)
+print("남은 총 : {0}".format(gun))
