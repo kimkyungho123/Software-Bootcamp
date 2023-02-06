@@ -2,6 +2,8 @@
 
 # __init__ : (객체가 만들어질 때 자동으로 호출됨) 생성자
 # 객체 : class로 부터 만들어지는 것
+# 멤버변수 : class내에서 정의된 변수
+
 class Unit:
     def __init__(self, name, hp, damage):
         self.name = name
@@ -14,3 +16,14 @@ class Unit:
 marine1 = Unit("마린", 40, 5)
 marine2 = Unit("마린", 40, 5)
 tank = Unit("탱크", 150, 35)
+
+wraith1 = Unit("레이스", 80, 5) #class 내부에서 작성한 부분
+print("유닛 이름 : {0}, 공격력 : {1}".format(wraith1.name, wraith1.damage)) #클래스 외부에서 작성한 부분
+
+
+#class 외부에서 내가 원하는 어떤 변수에 대한 확장이 가능하다. (확장한 객체에게만 적용된다)
+wraith2 = Unit("빼앗은 레이스", 80, 5)
+wraith2.clocking = True
+
+if wraith2.clocking == True:
+    print("{0} 는 현재 클로킹 상태입니다.".format(wraith2.name))
