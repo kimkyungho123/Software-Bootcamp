@@ -1,13 +1,27 @@
-# Standard Weight Example
-
-def std_weight(height, gender):
-    if gender == "남자":
-        return height * height * 22
-    else:
-        return height * height * 21
+# print("Python", "Java", sep=", ", end="?")
+# print("무엇이 더 재밌을까요?")
 
 
-height = 175
-gender = "남자"
-weight = round(std_weight(height / 100, gender), 2)
-print("키 {0}cm인 {1}의 표준 체중은 {2}kg 입니다.".format(height, gender, weight))
+
+# import sys
+# print("Python", "Java", file=sys.stdout) #표준출력
+# print("Python", "Java", file=sys.stderr) #표준에러
+
+
+
+# scores = {"수학": 0, "영어": 50, "코딩": 100}
+# for subject, score in scores.items():
+#     # print(subject, score)
+#     print(subject.ljust(3), str(score).rjust(4), sep=":")
+
+
+# 은행 대기순번표 ex) 001, 002, 003, ...
+# for num in range(1,21):
+#     print("대기번호 : " + str(num).zfill(3))
+
+
+
+answer = input("아무 값이나 입력하세요 : ")
+# 중요: input()함수는 항상 문자열로 값을 저장한다
+print(type(answer))
+print("입력하신 값은 " + answer + " 입니다.")
