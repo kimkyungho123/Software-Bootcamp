@@ -1,20 +1,15 @@
-# Method
 # self: class 자기자신 내부에 있는 멤버변수를 출력할때 사용
+# inheritance
 
 class Unit:
-    def __init__(self, name, hp, damage):
+    def __init__(self, name, hp):
         self.name = name
         self.hp = hp
-        self.damage = damage
-        print("{0} 유닛이 생성 되었습니다".format(self.name))
-        print("체력 {0}, 공격력 {1}".format(self.hp, self.damage))
 
 
-class AttackUnit:
+class AttackUnit(Unit):
     def __init__(self, name, hp, damage):
-        self.location = None
-        self.name = name
-        self.hp = hp
+        Unit.__init__(self, name, hp)
         self.damage = damage
 
     def attack(self, location):
