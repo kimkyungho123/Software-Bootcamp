@@ -1,3 +1,5 @@
+#Package: 모듈들을 모아둔 하나의 집합
+
 # 일반 가격
 def price(people):
     print("{0}명, 가격은 {1}원 입니다".format(people, people * 10000))
