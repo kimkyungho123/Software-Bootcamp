@@ -1,28 +1,31 @@
-#  Chicken Ordering
+# Module
 
-class sold_out_error(Exception):
-    pass
+#import  theater_module
+# theater_module.price(3)
+# theater_module.price_morning(4)
+# theater_module.price_soldier(5)
 
-chicken = 10
-waiting = 1
 
-while(True):
-    try:
-        print("[남은 치킨 : {0}]".format(chicken))
-        order = int(input("치킨을 몇 마리 주문하시겠습니까?"))
-        if order > chicken:
-            print("재료가 부족합니다.")
-        elif order <= 0:
-            raise ValueError
-        else:
-            print("[대기번호 {0}] {1} 마리 주문이 완료되었습니다.".format(waiting, order))
-            waiting += 1
-            chicken -= order
 
-        if chicken == 0:
-            raise sold_out_error
-    except ValueError:
-        print("잘못된 값을 입력하였습니다.")
-    except sold_out_error:
-        print("재고가 소진되어 더 이상 주문을 받지 않습니다.")
-        break
+# import theater_module as mv
+# mv.price(3)
+# mv.price_morning(4)
+# mv.price_soldier(5)
+
+
+
+# from theater_module import *
+# price(3)
+# price_morning(4)
+# price_soldier(5)
+
+
+
+# from theater_module import price, price_morning
+# price(5)
+# price_morning(6)
+
+
+
+from theater_module import price_soldier as PS
+PS(5)
