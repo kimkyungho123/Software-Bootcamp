@@ -1,8 +1,5 @@
-#class
-
-# __init__ : (객체가 만들어질 때 자동으로 호출됨) 생성자
-# 객체 : class로 부터 만들어지는 것
-# 멤버변수 : class내에서 정의된 변수
+# Method
+# self: class 자기자신 내부에 있는 멤버변수를 출력할때 사용
 
 class Unit:
     def __init__(self, name, hp, damage):
@@ -13,17 +10,26 @@ class Unit:
         print("체력 {0}, 공격력 {1}".format(self.hp, self.damage))
 
 
-marine1 = Unit("마린", 40, 5)
-marine2 = Unit("마린", 40, 5)
-tank = Unit("탱크", 150, 35)
+class AttackUnit:
+    def __init__(self, name, hp, damage):
+        self.location = None
+        self.name = name
+        self.hp = hp
+        self.damage = damage
 
-wraith1 = Unit("레이스", 80, 5) #class 내부에서 작성한 부분
-print("유닛 이름 : {0}, 공격력 : {1}".format(wraith1.name, wraith1.damage)) #클래스 외부에서 작성한 부분
+    def attack(self, location):
+        print("{0} : {1} 방향으로 적군을 공격합니다. [공격력 {2}]".format(self.name, location, self.damage))
+
+    def damaged(self, damage):
+        print("{0} : {1} 데미지를 입었습니다.".format(self.name, damage))
+        self.hp -= damage
+        print("{0} : 현재 체력은 {1} 입니다.".format(self.name, self.hp))
+        if self.hp <= 0:
+            print("{0} : 파괴되었습니다.".format(self.name))
 
 
-#class 외부에서 내가 원하는 어떤 변수에 대한 확장이 가능하다. (확장한 객체에게만 적용된다)
-wraith2 = Unit("빼앗은 레이스", 80, 5)
-wraith2.clocking = True
+firebat1 = AttackUnit("파이어뱃", 50, 16)
+firebat1.attack("5시")
 
-if wraith2.clocking == True:
-    print("{0} 는 현재 클로킹 상태입니다.".format(wraith2.name))
+firebat1.damaged(25)
+firebat1.damaged(25)
