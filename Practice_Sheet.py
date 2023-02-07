@@ -1,25 +1,19 @@
-# real estate example
+# Exception Handling
 
-class house:
-    def __init__(self, location, house_type, deal_type, price, completion_year):
-        self.location = location
-        self.house_type = house_type
-        self.deal_type = deal_type
-        self.price = price
-        self.completion_year = completion_year
+try:
+    print("나누기 전용 계산기입니다.")
+    nums = []
+    nums.append(int(input("첫 번재 숫자를 입력하세요 : ")))
+    nums.append(int(input("두 번재 숫자를 입력하세요 : ")))
+    # nums.append(int(nums[0] / nums[1]))
+    print("{0} / {1} = {2}".format(nums[0], nums[1], nums[2]))
 
-    def show_detail(self):
-        print(self.location, self.house_type, self.deal_type, self.price, self.completion_year)
+except ValueError:
+    print("에러: 잘못된 값을 입력했습니다.")
 
+except ZeroDivisionError as err:
+    print(err)
 
-House = []
-House1 = house("강남", "아파트", "매매", "10억", "2010년")
-House2 = house("마포", "오피스텔", "전세", "5억", "2007년")
-House3 = house("송파", "빌라", "월세", "500/50", "2000년")
-House.append(House1)
-House.append(House2)
-House.append(House3)
-
-print("총 {0}대의 매물이 있습니다.".format(len(House)))
-for house in House:
-    house.show_detail()
+except Exception as err:
+    print("알 수 없는 에러가 발생했습니다.")
+    print(err)
