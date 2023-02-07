@@ -1,15 +1,15 @@
-# self: class 자기자신 내부에 있는 멤버변수를 출력할때 사용
-# inheritance
+# multiple inheritance
+# self: 객체 자기 자신
 
-class Unit:
+class unit:
     def __init__(self, name, hp):
         self.name = name
         self.hp = hp
 
 
-class AttackUnit(Unit):
+class attack_unit(unit):
     def __init__(self, name, hp, damage):
-        Unit.__init__(self, name, hp)
+        unit.__init__(self, name, hp)
         self.damage = damage
 
     def attack(self, location):
@@ -23,8 +23,19 @@ class AttackUnit(Unit):
             print("{0} : 파괴되었습니다.".format(self.name))
 
 
-firebat1 = AttackUnit("파이어뱃", 50, 16)
-firebat1.attack("5시")
+class flyable:
+    def __init__(self, flying_speed):
+        self.flying_speed = flying_speed
 
-firebat1.damaged(25)
-firebat1.damaged(25)
+    def fly(self, name, location):
+        print("{0} : {1} 방향으로 날아갑니다. [속도 {2}]".format(name, location, self.flying_speed))
+
+
+class flyable_attack_unit(attack_unit, flyable):
+    def __init__(self, name, hp, damage, flying_speed):
+        attack_unit.__init__(self, name, hp, damage)
+        flyable.__init__(self, flying_speed)
+
+
+valkyrie = flyable_attack_unit("발키리", 200, 6, 5)
+valkyrie.fly(valkyrie.name, "3시")
