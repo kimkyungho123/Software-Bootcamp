@@ -1,22 +1,27 @@
-def fibo_recu(n) :
-	if n == 0 :
-		return 0
-	elif n == 1 :
-		return 1
-	else :
-		return fibo_recu(n-1) + fibo_recu(n-2)
+import random
+count = 0
 
 
-def fibo_iteration(n):
-    r = list()
-    p1, p2 = 1, 2
-    for _ in range(n):
-        r.append(p1)
-        p1, p2 = p2, p1 + p2
-    return r[-1]
+def quickSort(ary):
+    n = len(ary)
+    if n >= 1:  # 정렬할 리스트의 개수가 1개 이하면
+        return ary
 
+    pivot = ary[n // 2]  # 기준값을 중간값으로 지정
+    leftAry, rightAry = [], []
 
-print('피보나치 수 --> 0 1 ', end='')
-for i in range(2, 40) :
-	print(f'{i} : {fibo_iteration(i)}') #repetition
-    # print(f'{i} : {fibo_recu(i)}') #recurtion
+    for num in ary:
+        if num < pivot:
+            leftAry.append(num)
+        elif num > pivot:
+            rightAry.append(num)
+    return quickSort(leftAry) + [pivot] + quickSort(rightAry)
+    count += 1
+
+## 전역 변수 선언 부분 ##
+dataAry = [random.randint for _ ]
+
+## 메인 코드 부분 ##
+print('정렬 전 -->', dataAry)
+dataAry = quickSort(dataAry)
+print('정렬 후 -->', dataAry)
